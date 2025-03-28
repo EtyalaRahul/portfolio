@@ -143,6 +143,249 @@
         font-size: 1.3rem;
     }
 }
+/* Timeline container */
+.timeline-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background-color: #3b82f6; /* blue-500 */
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+/* Timeline items (cards) */
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+/* The circles on the timeline */
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border: 2px solid #3b82f6; /* blue-500 */
+  border-radius: 50%;
+  top: 15px;
+  z-index: 1;
+}
+
+/* Left-aligned items */
+.timeline-left {
+  left: 0;
+}
+
+/* Right-aligned items */
+.timeline-right {
+  left: 50%;
+}
+
+/* Add arrows to the left items (pointing right) */
+.timeline-left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right items (pointing left) */
+.timeline-right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Mobile view adjustments */
+@media screen and (max-width: 768px) {
+  /* Make the timeline vertical */
+  .timeline::after {
+    left: 31px;
+  }
+  
+  /* Full-width timeline items */
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+  
+  /* Make all items left-aligned */
+  .timeline-right {
+    left: 0;
+  }
+  
+  /* Move the circle to the left */
+  .timeline-item::after {
+    left: 25px;
+  }
+  
+  /* Make arrows point right */
+  .timeline-right::before,
+  .timeline-left::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+}
+@layer components {
+            .gradiant {
+                background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+            }
+            .bg-text {
+                background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+            .cursor {
+                color: white;
+                transition: all 0.3s ease;
+            }
+            .cursor:hover {
+                background: white;
+                color: black;
+            }
+            
+            /* Timeline container */
+            .timeline-container {
+                position: relative;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            /* The actual timeline (the vertical ruler) */
+            .timeline::after {
+                content: '';
+                position: absolute;
+                width: 2px;
+                background-color: #3b82f6;
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                margin-left: -1px;
+            }
+
+            /* Timeline items (cards) */
+            .timeline-item {
+                padding: 10px 40px;
+                position: relative;
+                width: 50%;
+                box-sizing: border-box;
+            }
+
+            /* The circles on the timeline */
+            .timeline-item::after {
+                content: '';
+                position: absolute;
+                width: 12px;
+                height: 12px;
+                background-color: white;
+                border: 2px solid #3b82f6;
+                border-radius: 50%;
+                top: 15px;
+                z-index: 1;
+            }
+
+            /* Left-aligned items */
+            .timeline-left {
+                left: 0;
+            }
+
+            /* Right-aligned items */
+            .timeline-right {
+                left: 50%;
+            }
+
+            /* Add arrows to the left items (pointing right) */
+            .timeline-left::before {
+                content: " ";
+                height: 0;
+                position: absolute;
+                top: 22px;
+                width: 0;
+                z-index: 1;
+                right: 30px;
+                border: medium solid white;
+                border-width: 10px 0 10px 10px;
+                border-color: transparent transparent transparent white;
+            }
+
+            /* Add arrows to the right items (pointing left) */
+            .timeline-right::before {
+                content: " ";
+                height: 0;
+                position: absolute;
+                top: 22px;
+                width: 0;
+                z-index: 1;
+                left: 30px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+
+            /* Mobile view adjustments */
+            @media screen and (max-width: 768px) {
+                /* Make the timeline vertical */
+                .timeline::after {
+                    left: 31px;
+                }
+                
+                /* Full-width timeline items */
+                .timeline-item {
+                    width: 100%;
+                    padding-left: 70px;
+                    padding-right: 25px;
+                }
+                
+                /* Make all items left-aligned */
+                .timeline-right {
+                    left: 0;
+                }
+                
+                /* Move the circle to the left */
+                .timeline-item::after {
+                    left: 25px;
+                }
+                
+                /* Make arrows point right */
+                .timeline-right::before,
+                .timeline-left::before {
+                    left: 60px;
+                    border: medium solid white;
+                    border-width: 10px 10px 10px 0;
+                    border-color: transparent white transparent transparent;
+                }
+            }
+        }
     </style>
 </head>
 
@@ -173,7 +416,7 @@
 
             <!-- Navigation Links -->
             <div id="nav-links" class="hidden lg:flex flex-col lg:flex-row lg:space-x-4 space-y-2 lg:space-y-0 lg:mt-0 mt-4 text-xl ">
-                <a href="/" class="text-white px-4 py-2 hover:text-orange-600 transition-colors duration-300">Home</a>
+                <a href="/second.html" class="text-white px-4 py-2 hover:text-orange-600 transition-colors duration-300">Home</a>
                 <a href="#projects" class="text-white px-4 py-2 hover:text-orange-600 transition-colors duration-300">Projects</a>
                 <a href="#tech-stack" class="text-white px-4 py-2 hover:text-orange-600 transition-colors duration-300">Tech Stack</a>
                 <a href="#education" class="text-white px-4 py-2 hover:text-orange-600 transition-colors duration-300">Education</a>
@@ -690,75 +933,61 @@
     <section id="education" class="bg-black py-16 px-4 sm:px-6">
         <div class="max-w-4xl mx-auto">
             <h1 class="text-center text-4xl sm:text-5xl font-bold mb-12">Education</h1>
-            <div class="relative wrap overflow-hidden p-4 sm:p-10 h-full">
-                <!-- Vertical line -->
-                <div class="border-2 absolute border-opacity-20 border-gray-500 h-full border" style="left: 50%"></div>
 
-                <!-- Timeline item 1 -->
-                <div class="mb-8 flex justify-between items-center w-full right-timeline">
-                    <div class="order-1 w-5/12"></div>
-                    <div class="z-20 flex items-center order-1 bg-blue-500 shadow-xl w-8 h-8 rounded-full">
-                        <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
+            <div class="timeline-container">
+                <div class="timeline">
+                    <!-- Timeline item 1 -->
+                    <div class="timeline-item timeline-left">
+                        <div class="bg-gray-700 rounded-lg shadow-xl p-6">
+                            <h3 class="mb-3 font-bold text-white text-xl">SSC - Montessori Play School</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300">
+                                Completed Secondary School Certificate (SSC) with a strong academic foundation,
+                                emphasizing
+                                learning through play and creativity in early years. Achieved a CGPA of <span class="font-bold text-white">10</span>.
+                            </p>
+                        </div>
                     </div>
-                    <div class="order-1 bg-gray-700 rounded-lg shadow-xl w-full sm:w-5/12 px-4 sm:px-6 py-4">
-                        <h3 class="mb-2 sm:mb-3 font-bold text-white text-lg sm:text-xl">SSC - Montessori Play School</h3>
-                        <p class="text-xs sm:text-sm leading-snug tracking-wide text-gray-300">
-                            Completed Secondary School Certificate (SSC) with a strong academic foundation, emphasizing
-                            learning through play and creativity in early years. Achieved a CGPA of <span class="font-bold text-white">10</span>.
-                        </p>
-                    </div>
-                </div>
 
-                <!-- Timeline item 2 -->
-                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
-                    <div class="order-1 w-5/12"></div>
-                    <div class="z-20 flex items-center order-1 bg-blue-500 shadow-xl w-8 h-8 rounded-full">
-                        <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
+                    <!-- Timeline item 2 -->
+                    <div class="timeline-item timeline-right">
+                        <div class="bg-gray-700 rounded-lg shadow-xl p-6">
+                            <h3 class="mb-3 font-bold text-white text-xl">
+                                Intermediate - Narayana Junior College (MPC) (2021-2023)
+                            </h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300">
+                                Focused on Mathematics, Physics, and Chemistry for a strong technical foundation.
+                                Developed
+                                problem-solving skills and analytical thinking through rigorous coursework. Secured
+                                <span class="font-bold text-white">95.8%</span>.
+                            </p>
+                        </div>
                     </div>
-                    <div class="order-1 bg-gray-700 rounded-lg shadow-xl w-full sm:w-5/12 px-4 sm:px-6 py-4">
-                        <h3 class="mb-2 sm:mb-3 font-bold text-white text-lg sm:text-xl">
-                            Intermediate - Narayana Junior College (MPC) (2021-2023)
-                        </h3>
-                        <p class="text-xs sm:text-sm leading-snug tracking-wide text-gray-300">
-                            Focused on Mathematics, Physics, and Chemistry for a strong technical foundation. Developed
-                            problem-solving skills and analytical thinking through rigorous coursework. Secured
-                            <span class="font-bold text-white">95.8%</span>.
-                        </p>
-                    </div>
-                </div>
 
-                <!-- Timeline item 3 -->
-                <div class="mb-8 flex justify-between items-center w-full right-timeline">
-                    <div class="order-1 w-5/12"></div>
-                    <div class="z-20 flex items-center order-1 bg-blue-500 shadow-xl w-8 h-8 rounded-full">
-                        <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
+                    <!-- Timeline item 3 -->
+                    <div class="timeline-item timeline-left">
+                        <div class="bg-gray-700 rounded-lg shadow-xl p-6">
+                            <h3 class="mb-3 font-bold text-white text-xl">B.Tech - KL University (2023-2027)</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300">
+                                Pursuing a Bachelor's degree in Computer Science and Engineering. Focused on software
+                                development, data structures, algorithms, and modern technologies. Engaged in projects,
+                                internships, and certifications to enhance practical knowledge and industry readiness.
+                                Current CGPA: <span class="font-bold text-white">9.63</span>.
+                            </p>
+                        </div>
                     </div>
-                    <div class="order-1 bg-gray-700 rounded-lg shadow-xl w-full sm:w-5/12 px-4 sm:px-6 py-4">
-                        <h3 class="mb-2 sm:mb-3 font-bold text-white text-lg sm:text-xl">B.Tech - KL University (2023-2027)</h3>
-                        <p class="text-xs sm:text-sm leading-snug tracking-wide text-gray-300">
-                            Pursuing a Bachelor's degree in Computer Science and Engineering. Focused on software
-                            development, data structures, algorithms, and modern technologies. Engaged in projects,
-                            internships, and certifications to enhance practical knowledge and industry readiness.
-                            Current CGPA: <span class="font-bold text-white">9.63</span>.
-                        </p>
-                    </div>
-                </div>
 
-                <!-- Timeline item 4 -->
-                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
-                    <div class="order-1 w-5/12"></div>
-                    <div class="z-20 flex items-center order-1 bg-blue-500 shadow-xl w-8 h-8 rounded-full">
-                        <h1 class="mx-auto font-semibold text-lg text-white">4</h1>
-                    </div>
-                    <div class="order-1 bg-gray-700 rounded-lg shadow-xl w-full sm:w-5/12 px-4 sm:px-6 py-4">
-                        <h3 class="mb-2 sm:mb-3 font-bold text-white text-lg sm:text-xl">
-                            Next Wave CCBP 4.0 Academy (2023-2027)
-                        </h3>
-                        <p class="text-xs sm:text-sm leading-snug tracking-wide text-gray-300">
-                            Advanced training in Full Stack Development and Industry-Ready Skills. Specialized in
-                            front-end and back-end technologies, data science, and machine learning. Participated in
-                            hands-on projects, coding challenges, and hackathons to build a strong portfolio.
-                        </p>
+                    <!-- Timeline item 4 -->
+                    <div class="timeline-item timeline-right">
+                        <div class="bg-gray-700 rounded-lg shadow-xl p-6">
+                            <h3 class="mb-3 font-bold text-white text-xl">
+                                Next Wave CCBP 4.0 Academy (2023-2027)
+                            </h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300">
+                                Advanced training in Full Stack Development and Industry-Ready Skills. Specialized in
+                                front-end and back-end technologies, data science, and machine learning. Participated in
+                                hands-on projects, coding challenges, and hackathons to build a strong portfolio.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
